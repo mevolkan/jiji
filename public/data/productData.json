@@ -1,0 +1,13 @@
+{
+    "imageUrl": "https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg",
+    "imageAlt": "Apple iMac 27\"",
+    "discountLabel": "Up to 35% off",
+    "productName": "Apple iMac 27\", 1TB HDD, Retina 5K Display, M3 Max",
+    "rating": 5,
+    "reviewCount": 455,
+    "features": [
+        { "id": 1, "feature": "Fast Delivery" },
+        { "id": 2, "feature": "Best Price" }
+    ],
+    "price": "1,699.00"
+}

@@ -1,4 +1,54 @@
-export default function ProductCards() {
+import Product from "./product"
+import path from 'path';
+import fs from 'fs';
+
+export async function getServerSideProps() {
+    const filePath = path.join(process.cwd(), 'data', 'productData.json');
+    console.log('File Path:', filePath);
+    
+    try {
+        const jsonData = fs.readFileSync(filePath, 'utf-8');
+        const product = JSON.parse(jsonData);
+        console.log('Product Data:', product);
+        
+        return {
+            props: {
+                product,
+            },
+        };
+    } catch (error) {
+        console.error('Error reading file:', error);
+        return {
+            props: {
+                product: null,
+            },
+        };
+    }
+}
+
+
+interface ProductProps {
+    imageUrl: string;
+    imageAlt: string;
+    discountLabel: string;
+    productName: string;
+    rating: number;
+    reviewCount: number;
+    features: { icon: string; label: string }[];
+    price: number;
+}
+
+interface ProductCardProps {
+    product?: ProductProps;
+}
+
+
+export default function ProductCards({ product }: ProductCardProps) {
+
+    if (!product) {
+        return <div className="flex justify-center">No product data available</div>;
+    }
+
     return (
         <section className=" py-8 antialiased  md:py-12">
             <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
@@ -79,7 +129,16 @@ export default function ProductCards() {
                     </div>
                 </div>
                 <div className="mb-4 grid gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-4">
-
+                    <Product
+                        imageUrl={product.imageUrl}
+                        imageAlt={product.imageAlt}
+                        discountLabel={product.discountLabel}
+                        productName={product.productName}
+                        rating={product.rating}
+                        reviewCount={product.reviewCount}
+                        features={product.features}
+                        price={product.price}
+                    />
                 </div>
                 <div className="w-full text-center">
                     <button type="button" className="rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700">Show more</button>
