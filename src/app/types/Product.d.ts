@@ -1,7 +1,6 @@
 export interface ProductProps {
     id: string;
     imageUrl: string;
-    imageAlt: string;
     discountLabel: string;
     productName: string;
     rating: number;
@@ -11,4 +10,5 @@ export interface ProductProps {
         feature: string;
     }[];
     price: number;
+    salePrice: number;
 }

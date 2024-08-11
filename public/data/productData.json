@@ -1,10 +1,9 @@
 [
     {
         "id": "1",
-        "imageUrl": "https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg",
-        "imageAlt": "Apple iMac 27\"",
-        "discountLabel": "Up to 35% off",
-        "productName": "Apple iMac 27\", 1TB HDD, Retina 5K Display, M3 Max",
+        "imageUrl": "./images/spectacles.png",
+        "discountLabel": "Sale",
+        "productName": "Sun Glasses",
         "rating": 5,
         "reviewCount": 455,
         "features": [
@@ -17,14 +16,16 @@
                 "feature": "Best Price"
             }
         ],
-        "price": 1699.00
+        "shortDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "price": 1699.00,
+        "salePrice": 1499.00
     },
     {
         "id": "2",
-        "imageUrl": "https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg",
-        "imageAlt": "Apple iMac 27\"",
-        "discountLabel": "Up to 35% off",
-        "productName": "Apple iMac 27\", 1TB HDD, Retina 5K Display, M3 Max",
+        "imageUrl": "/images/spectacles2.png",
+        "discountLabel": "Best Seller",
+        "productName": "Spectacles",
         "rating": 5,
         "reviewCount": 455,
         "features": [
@@ -37,6 +38,9 @@
                 "feature": "Best Price"
             }
         ],
-        "price": 1699.00
+        "shortDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "price": 699.00,
+        "salePrice": 499.00
     }
 ]
