@@ -1,6 +1,7 @@
 
 
 import React from 'react';
+import Link from 'next/link';
 import { ProductProps } from '../types/Product';
 
 interface ProductCardProps {
@@ -19,16 +20,16 @@ export default function Product({ product }: ProductCardProps) {
                 </div>
             )}
             <div className="h-56 w-full">
-                <a href="#">
+            <Link href={`/product/${product.id}`}>
                     <img className="mx-auto object-contain hover:object-scale-down h-full dark:hidden" src={product.imageUrl} alt={product.productName} />
                     <img className="mx-auto object-contain hover:object-scale-down hidden h-full dark:block" src={product.imageUrl} alt={product.productName} />
-                </a>
+                </Link>
             </div>
             <div className="pt-6 text-center">
 
-                <a href="#" className="text-lg font-semibold leading-tight text-gray-900 hover:underline ">
+                <Link href={`/product/${product.id}`} className="text-lg font-semibold leading-tight text-gray-900 hover:underline ">
                     {product.productName}
-                </a>
+                </Link>
                 <div className="mt-2 flex items-center gap-2">
                     <p className="text-sm font-medium text-gray-900 ">{product.rating.toFixed(1)}</p>
                     <p className="text-sm font-medium text-gray-500 dark:text-gray-400">({product.reviewCount})</p>
