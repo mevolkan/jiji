@@ -1,4 +1,5 @@
 export interface ProductProps {
+
     id: string;
     imageUrl: string;
     discountLabel: string;
@@ -9,6 +10,8 @@ export interface ProductProps {
         id: string;
         feature: string;
     }[];
+    shortDescription: ReactNode;
+    description: ReactNode;
     price: number;
     salePrice: number;
 }
