@@ -1,4 +1,5 @@
 export interface ProductProps {
+    id: string;
     imageUrl: string;
     imageAlt: string;
     discountLabel: string;
@@ -6,8 +7,8 @@ export interface ProductProps {
     rating: number;
     reviewCount: number;
     features: {
-        id: Key | null | undefined;
-        feature: ReactNode; icon: string; label: string 
-}[];
+        id: string;
+        feature: string;
+    }[];
     price: number;
 }

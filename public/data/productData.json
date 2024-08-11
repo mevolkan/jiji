@@ -1,5 +1,6 @@
 [
     {
+        "id": "1",
         "imageUrl": "https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg",
         "imageAlt": "Apple iMac 27\"",
         "discountLabel": "Up to 35% off",
@@ -7,12 +8,19 @@
         "rating": 5,
         "reviewCount": 455,
         "features": [
-            { "id": 1, "feature": "Fast Delivery" },
-            { "id": 2, "feature": "Best Price" }
+            {
+                "id": 1,
+                "feature": "Fast Delivery"
+            },
+            {
+                "id": 2,
+                "feature": "Best Price"
+            }
         ],
         "price": 1699.00
     },
     {
+        "id": "2",
         "imageUrl": "https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg",
         "imageAlt": "Apple iMac 27\"",
         "discountLabel": "Up to 35% off",
@@ -20,8 +28,14 @@
         "rating": 5,
         "reviewCount": 455,
         "features": [
-            { "id": 1, "feature": "Fast Delivery" },
-            { "id": 2, "feature": "Best Price" }
+            {
+                "id": 1,
+                "feature": "Fast Delivery"
+            },
+            {
+                "id": 2,
+                "feature": "Best Price"
+            }
         ],
         "price": 1699.00
     }

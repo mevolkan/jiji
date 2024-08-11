@@ -1,61 +1,53 @@
-import { ProductProps } from '../types/Product'
-import Product from "./product"
-import path from 'path';
-import fs from 'fs';
+'use client'
 
-export async function getServerSideProps() {
-    const filePath = path.join(process.cwd(), 'data', 'productData.json');
-    console.log('File Path:', filePath);
+import React, { useEffect, useState } from 'react';
+import Product from './product';
+import { ProductProps } from '../types/Product';
 
-    try {
-        const jsonData = fs.readFileSync(filePath, 'utf-8');
-        const product = JSON.parse(jsonData);
-        console.log('Product Data:', product);
+export default function ProductCards() {
+    const [products, setProducts] = useState<ProductProps[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
 
-        return {
-            props: {
-                product,
-            },
-        };
-    } catch (error) {
-        console.error('Error reading file:', error);
-        return {
-            props: {
-                product: null,
-            },
-        };
+    useEffect(() => {
+        // Fetch data from the public directory
+        fetch('/data/productData.json')
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then((data: ProductProps[]) => {
+                setProducts(data);
+                setLoading(false);
+            })
+            .catch((error) => {
+                setError(error.message);
+                setLoading(false);
+            });
+    }, []);
+
+    if (loading) {
+        return <div className="flex justify-center">Loading...</div>;
     }
-}
 
-interface ProductCardProps {
-    product?: ProductProps;
-}
+    if (error) {
+        return <div className="flex justify-center">Error: {error}</div>;
+    }
 
-
-export default function ProductCards({ product }: ProductCardProps) {
-
-    if (!product) {
+    if (!Array.isArray(products) || products.length === 0) {
         return <div className="flex justify-center">No product data available</div>;
     }
 
     return (
-        <>
-
-          
-            <div className="mb-4 grid gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mb-4 grid gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-4">
+            {products.map((product) => (
                 <Product
-                    imageUrl={product.imageUrl}
-                    imageAlt={product.imageAlt}
-                    discountLabel={product.discountLabel}
-                    productName={product.productName}
-                    rating={product.rating}
-                    reviewCount={product.reviewCount}
-                    features={product.features}
-                    price={product.price}
+                    key={product.id}
+                    product={product}
                 />
-            </div>
-            
-        </>
-
-    )
+            ))}
+        </div>
+    );
 }
